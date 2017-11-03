@@ -1,0 +1,43 @@
+const token = require('./settings.json').token;
+var name = Math.floor(Math.random() * 999999);
+var googleTTS = require('google-tts-api');
+const Discord = require('discord.js');
+var urlParse  = require('url').parse;
+const client = new Discord.Client();
+var unirest = require('unirest');
+var https = require('https');
+var path = require('path');
+var http = require('http');
+var fs = require('fs');
+
+
+client.on('ready',() => {
+		console.log('Vert Time');
+});
+
+const prefix = "?"
+
+client.on('message', message => {
+
+	const amount = !parseInt(message.content.split(" ")[1]) ? parseInt(message.content.split(" ")[2]) : parseInt(message.content.split(" ")[1])
+	// let modRole = message.guild.roles.find("name", "Admin", "Moderator");
+	// let colorR = message.guild.roles.find("name", "Bots");
+	let args = message.content.split(' ').slice(1);
+	let spam = "305945324999147520"
+  const guild = message.guild;
+	let result = args.join(' ');
+	//if (!message.content.startsWith(prefix)) return;
+	//if (message.author.bot) return;
+
+	if (message.content.startsWith(prefix + 'btc')) {
+		  unirest.get("https://api.coinmarketcap.com/v1/ticker/bitcoin")
+		     .header("Accept", "application/json")
+		     .end(function(result) {
+		         // For Debug Only
+		         //console.log(result.status, result.headers, result.body);
+		         console.log("Running BTC Command.");
+		         message.channel.send("The current price of Bitcoin is: $" + result.body[0].price_usd + "\nThat is: " + result.body[0].price_btc + " BTC \n1 hour percent change at: " +  result.body[0].percent_change_1h + "%"  + "\n24 hour percent change: " + result.body[0].percent_change_24h  + "%" );
+		    });
+}});
+
+client.login(token);
