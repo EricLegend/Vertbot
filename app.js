@@ -3,19 +3,18 @@ const name = Math.floor(Math.random() * 999999);
 const googleTTS = require('google-tts-api');
 const Discord = require('discord.js');
 const urlParse  = require('url').parse;
-const client = new Discord.Client();
 const unirest = require('unirest');
 const https = require('https');
 const path = require('path');
 const http = require('http');
 const fs = require('fs');
-
-
 const prefix = settings.prefix;
-
 const bot = new Discord.Client({disableEveryone: true});
+
 exports.bot
+
 require('./util/eventloader')(bot);
+
 bot.commands = new Discord.Collection();
 
 fs.readdir('./cmds/', (err, files) =>{

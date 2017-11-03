@@ -1,6 +1,6 @@
 const settings = require('../settings.json');
 module.exports = message => {
-  if(message.author.id === bot.user.id) return;
+  if(message.author.bot) return;
   if(message.channel.type === 'dm') return;
   
   let bot = message.client;
