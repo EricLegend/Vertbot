@@ -1,4 +1,7 @@
 {
 	"prefix": "v.",
-  "token": "Mzc1NDAzMzg0NzgzNjM0NDM0.DN1Eqw.RNNqp3fw9CPLYWHJSA7lS5Me4H8"
+  "token": "Mzc1NDAzMzg0NzgzNjM0NDM0.DN1Eqw.RNNqp3fw9CPLYWHJSA7lS5Me4H8",
+  "modRole" : "Mod" ,
+  "adminRole" : "Admin" ,
+  "ownerRole" : "145702927099494400"
 }
