@@ -1,0 +1,78 @@
+✔ Vertcoin
+Value Changed: ▼ ▲
+Previous Value: $3.57756
+Current Value: $3.57756
+Stale: $0.00
+-------------------
+✔ Vertcoin
+Value Changed: ▼
+Previous Value: $3.57756
+Current Value: $3.53875
+Loss: $0.04
+-------------------
+✔ Vertcoin
+Value Changed: ▼
+Previous Value: $3.53875
+Current Value: $3.53492
+Loss: $0.00
+-------------------
+✔ Vertcoin
+Value Changed: ▼ ▲
+Previous Value: $3.53492
+Current Value: $3.53492
+Stale: $0.00
+-------------------
+✔ Vertcoin
+Value Changed: ▼
+Previous Value: $3.52401
+Current Value: $3.50560
+Loss: $0.02
+-------------------
+✔ Vertcoin
+Value Changed: ▼
+Previous Value: $3.50560
+Current Value: $3.48680
+Loss: $0.02
+-------------------
+✔ Vertcoin
+Value Changed: ▲
+Previous Value: $3.48680
+Current Value: $3.53402
+Profit: $0.05
+-------------------
+✔ Vertcoin
+Value Changed: ▲
+Previous Value: $3.62517
+Current Value: $3.65267
+Profit: $0.03
+-------------------
+✔ Vertcoin
+Value Changed: ▼ ▲
+Previous Value: $3.66309
+Current Value: $3.66309
+Stale: $0.00
+-------------------
+✔ Vertcoin
+Value Changed: ▼ ▲
+Previous Value: $3.59662
+Current Value: $3.59662
+Stale: $0.00
+-------------------
+✔ Vertcoin
+Value Changed: ▼ ▲
+Previous Value: $3.66145
+Current Value: $3.66145
+Stale: $0.00
+-------------------
+✔ Vertcoin
+Value Changed: ▼ ▲
+Previous Value: $3.63702
+Current Value: $3.63702
+Stale: $0.00
+-------------------
+✔ Vertcoin
+Value Changed: ▼ ▲
+Previous Value: $3.64292
+Current Value: $3.64292
+Stale: $0.00
+-------------------
