@@ -36,7 +36,7 @@ bot.elevation = function(message) {
   if (modRole && message.member.roles.has(modRole.id)) permLvl = 2;
   let adminRole = message.guild.roles.find('name', settings.adminRole);
   if(adminRole && message.member.roles.has(adminRole.id)) permLvl = 3;
-  if(message.author.id === settings.ownerRole) permLvl = 4;
+  if(message.author.id === settings.ownerRole[0] || message.author.id === settings.ownerRole[1]) permLvl = 4;
   return permLvl;
 };
 
