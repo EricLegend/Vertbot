@@ -8,6 +8,7 @@ module.exports.run = (bot, message, args) =>{
 		.addField('BLinc#9496', `VertCoin Address\`\`\`asciicode\nVaiZohVRFFLJDehRLuUNb7DhP8tPNZoSmU\n\`\`\``)
 		.addField('Eric#1643', `VertCoin Address\`\`\`asciicode\nVveN6bCbR3E5HeggYwVEktE8khtxGhF2Vs\n\`\`\``)
 		.setThumbnail('https://image.ibb.co/c462Qw/devround.png')
+		.setColor('#FFFFFF')
 	message.channel.send({embed: embedB});
 }
 

@@ -1,4 +1,7 @@
 const Discord = module.require('discord.js')
+const cmdName1 = __filename.slice(__dirname.length + 1, -3).slice(1)
+const cmdNameU = __filename.slice(__dirname.length + 1, -3).charAt(0).toUpperCase()+cmdName1
+const cmdNameL = __filename.slice(__dirname.length + 1, -3).charAt(0).toLowerCase()+cmdName1
 module.exports.run = async (bot, message, args) =>{
 
 }

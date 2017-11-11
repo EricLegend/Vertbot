@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) =>{
       let v = body;
       vertVal((v[0].price_usd))
       });
-    }, 240000); //360000 for 6 minutes
+    }, 360000); //360000 for 6 minutes
 
   function vertVal(data){
     const low = require('lowdb');
@@ -78,25 +78,22 @@ module.exports.run = async (bot, message, args) =>{
       }
 
       })
-  }, 300000);// 600000 for 10 minutes
-
-  let haste = fs.readFileSync("./logs/vtcpllog.txt").toString();
-    hastebin(haste).then(r => {
-      setInterval(function () {
-        message.guild.members.get("145702927099494400").send(`Hourly Profit Tracker: ${r}`)
-        message.guild.members.get("298574999894097921").send(`Hourly Profit Tracker: ${r}`)
-      }, 3600000);
-    }).catch(console.error);
+  }, 600000);// 600000 for 10 minutes
 
   function log(logged){
     fs.writeFile('./logs/vtcpllog.txt', logged, { flag: 'a+' }, (err) =>{
       if(err) throw err;
       console.log('added entry to pl tracker')
     })
-    // setInterval(function () {
-    //   message.guild.members.get("145702927099494400").send({file: './logs/vtcpllog.txt'})
-    // }, 240000); 
   }
+  setInterval(function () {
+  let haste = fs.readFileSync("./logs/vtcpllog.txt").toString();
+  hastebin(haste).then(r => {
+    
+      message.guild.members.get("145702927099494400").send(`Hourly Profit Tracker: ${r}`)
+      message.guild.members.get("298574999894097921").send(`Hourly Profit Tracker: ${r}`)
+    }).catch(console.error);
+  }, 3600000);//3600000
 
 }
 

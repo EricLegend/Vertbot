@@ -5,6 +5,7 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const prefix = settings.prefix;
 const bot = new Discord.Client({disableEveryone: true});
+const guessed = new Set();
 
 exports.bot
 

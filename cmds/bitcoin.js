@@ -1,69 +1,76 @@
 const unirest = require('unirest');
 const Discord = module.require('discord.js')
-const cmdName = __filename.slice(__dirname.length + 1, -3).slice(1)
-const cmdNameU = __filename.slice(__dirname.length + 1, -3).charAt(0).toUpperCase()
-const cmdNameL = __filename.slice(__dirname.length + 1, -3).charAt(0).toLowerCase()
+const cmdName = __filename.slice(__dirname.length + 1, -3)
+const cmdName1 = __filename.slice(__dirname.length + 1, -3).slice(1)
+const cmdNameU = __filename.slice(__dirname.length + 1, -3).charAt(0).toUpperCase()+cmdName1
+const cmdNameL = __filename.slice(__dirname.length + 1, -3).charAt(0).toLowerCase()+cmdName1
+const colors = require('../colors.json')
 module.exports.run = (bot, message, args) =>{
+	console.log(cmdName)
 	if(args[0] === "usd") {
-		unirest.get(`https://api.coinmarketcap.com/v1/ticker/${cmdNameU+cmdName}`)
+		unirest.get(`https://api.coinmarketcap.com/v1/ticker/${cmdNameU}`)
 		.header("Accept", "application/json")
 		.end(function(result) {
 		  // For Debug Only
 		 	//console.log(result.status, result.headers, result.body);
-		  console.log(`Running ${cmdNameU+cmdName} Command.`);
+		  console.log(`Running ${cmdNameU} Command.`);
 		  let embed = new Discord.RichEmbed()
-				.setTitle(`${cmdNameU+cmdName}`)
-				.setThumbnail(`https://files.coinmarketcap.com/static/img/coins/128x128/${cmdNameL+cmdName}.png`)
+				.setTitle(`${cmdNameU}`)
+				.setThumbnail(`https://files.coinmarketcap.com/static/img/coins/128x128/${cmdNameL}.png`)
 				.addField("Price:", `$${result.body[0].price_usd}`, true)
-				.addField(`${cmdNameU+cmdName} Quanity:`, result.body[0].price_btc, true)
+				.addField(`Bitcoin Quanity:`, result.body[0].price_btc, true)
 				.addField("1 HR Change:", `${result.body[0].percent_change_1h}%`, true)
 				.addField("24 HR Change:", `${result.body[0].percent_change_24h}%`, true)
-				.setColor("#FF9900")
+				.setColor(colors[`${cmdNameL}`])
+				.setFooter(`Developed by: BLinc#9496 and Eric#1643 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
 		  message.channel.send({embed: embed});
 		});
 	}
 	if(args[0] === "eur") {
-		unirest.get(`https://api.coinmarketcap.com/v1/ticker/${cmdNameU+cmdName}/?convert=EUR`)
+		unirest.get(`https://api.coinmarketcap.com/v1/ticker/${cmdNameU}/?convert=EUR`)
 		.header("Accept", "application/json")
    	.end(function(result) {
    		// For Debug Only
 		  //console.log(result.status, result.headers, result.body);
-		  console.log("Running eurBTC Command.");
+		  console.log(`Running ${cmdNameU} EUR Command.`);
 		  let embed = new Discord.RichEmbed()
-				.setTitle(`${cmdNameU+cmdName}`)
-				.setThumbnail(`https://files.coinmarketcap.com/static/img/coins/128x128/${cmdNameL+cmdName}.png`)
+				.setTitle(`${cmdNameU}`)
+				.setThumbnail(`https://files.coinmarketcap.com/static/img/coins/128x128/${cmdNameL}.png`)
 				.addField("Price:", `€${result.body[0].price_eur.slice(0,-6)}`, true)
-				.addField(`${cmdNameU+cmdName} Quanity:`, result.body[0].price_btc, true)
+				.addField(`Bitcoin Quanity:`, result.body[0].price_btc, true)
 				.addField("1 HR Change:", `${result.body[0].percent_change_1h}%`, true)
 				.addField("24 HR Change:", `${result.body[0].percent_change_24h}%`, true)
-				.setColor("#FF9900")
+				.setColor(colors[`${cmdNameL}`])
+				.setFooter(`Developed by: BLinc#9496 and Eric#1643 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
 		  message.channel.send({embed: embed});
 		});
 	}
 	if(args[0] === "gbp") {
-		unirest.get(`https://api.coinmarketcap.com/v1/ticker/${cmdNameU+cmdName}/?convert=GBP`)
+		unirest.get(`https://api.coinmarketcap.com/v1/ticker/${cmdNameU}/?convert=GBP`)
 		.header("Accept", "application/json")
 		.end(function(result) {
 			// For Debug Only
 			//console.log(result.status, result.headers, result.body);
-			console.log("Running gpbBTC Command.");
+			console.log(`Running ${cmdNameU} GBP Command.`);
 			let embed = new Discord.RichEmbed()
-				.setTitle(`${cmdNameU+cmdName}`)
-				.setThumbnail(`https://files.coinmarketcap.com/static/img/coins/128x128/${cmdNameL+cmdName}.png`)
+				.setTitle(`${cmdNameU}`)
+				.setThumbnail(`https://files.coinmarketcap.com/static/img/coins/128x128/${cmdNameL}.png`)
 				.addField("Price:", `£${result.body[0].price_gbp.slice(0,-4)}`, true)
-				.addField(`${cmdNameU+cmdName} Quanity:`, result.body[0].price_btc, true)
+				.addField(`Bitcoin Quanity:`, result.body[0].price_btc, true)
 				.addField("1 HR Change:", `${result.body[0].percent_change_1h}%`, true)
 				.addField("24 HR Change:", `${result.body[0].percent_change_24h}%`, true)
-				.setColor("#FF9900")
+				.setColor(colors[`${cmdNameL}`])
+				.setFooter(`Developed by: BLinc#9496 and Eric#1643 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
 			message.channel.send({embed: embed});
 		});
 	}
 	if(args.length < 1) {
 		let embed = new Discord.RichEmbed()
 			.setTitle("❌ ERROR")
-			.setDescription(`You must supply a currency in order to get ${cmdNameU+cmdName} information!\n\n**Example:** \`\`\`xl\nv.${cmdNameL+cmdName} usd\n\`\`\``)
+			.setDescription(`You must supply a currency in order to get ${cmdNameU} information!\n\n**Example:** \`\`\`xl\nv.${cmdNameL} usd\n\`\`\``)
 			.addField("Supported Currency:", "\`usd, eur, gbp\`")
 			.setColor("#ff0000")
+			.setFooter(`Developed by: BLinc#9496 and Eric#1643 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
 		message.channel.send({embed: embed})
 	}
 }
@@ -76,7 +83,7 @@ module.exports.conf = {
 }
 
 module.exports.help = {
-  name: `${cmdNameL+cmdName}`,
-  description: `list value of ${cmdNameL+cmdName} in selected currency ex: usd, eur, gbp`,
-  usage: `${cmdNameL+cmdName} <currency>`
+  name: `${cmdNameL}`,
+  description: `list value of ${cmdNameL} in selected currency ex: usd, eur, gbp`,
+  usage: `${cmdNameL} <currency>`
 }
