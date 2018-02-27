@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) =>{
     message.channel.send("Set VTC Value, The Value will update automatically every 10 minutes")
     })
 
-    setInterval(function () {  
+    setInterval(function () {
     request({url: 'https://api.coinmarketcap.com/v1/ticker/vertcoin', json: true},function(error, response, body) {
       let v = body;
       vertVal((v[0].price_usd))
@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) =>{
       .write()
   }
 
-  setInterval(function () {  
+  setInterval(function () {
     request({url: 'https://api.coinmarketcap.com/v1/ticker/vertcoin', json: true},function(error, response, body) {
       let v = body;
       let newVal = (v[0].price_usd)
@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) =>{
       const FileSync = require('lowdb/adapters/FileSync');
       const adapter = new FileSync('db.json')
       const db = low(adapter);
-    
+
       let oldVal = db.get('VTC.value').value();
 
       if(oldVal < newVal){
@@ -89,7 +89,7 @@ module.exports.run = async (bot, message, args) =>{
   setInterval(function () {
   let haste = fs.readFileSync("./logs/vtcpllog.txt").toString();
   hastebin(haste).then(r => {
-    
+
       message.guild.members.get("145702927099494400").send(`Hourly Profit Tracker: ${r}`)
       message.guild.members.get("298574999894097921").send(`Hourly Profit Tracker: ${r}`)
     }).catch(console.error);
