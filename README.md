@@ -9,8 +9,8 @@ will merge to the master and run the bot with the new code. That's about it. If 
 
 1. Download Node from here https://nodejs.org/en/download/
 2. Open cmd and type `npm install --save discord.js`
-3. cd into the folder you cloned the repo into
-4. type `node app.js` to start the bot.
-  ⋅⋅⋅a. Remember to change the token to one of yours to test with your bot.
-5.  tada your bot should be running.
+3. `cd path/to/clone` into the folder you cloned the repo into
+4. Type `node app.js` to start the bot.<br/>
+      a. Remember to change the token to one of yours to test with your bot. 
 
+tada your bot should be running.
