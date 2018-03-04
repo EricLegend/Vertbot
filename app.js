@@ -4,8 +4,11 @@ const googleTTS = require('google-tts-api');
 const Discord = require('discord.js');
 const fs = require('fs');
 const prefix = settings.prefix;
+const idToken = settings.idToken;
 const bot = new Discord.Client({disableEveryone: true});
 const guessed = new Set();
+const { Client } = require("idiotic-api");
+bot.IdioticAPI = new Client(idToken, { dev: true });
 
 exports.bot
 
