@@ -3,3 +3,4 @@ package-lock.json
 db.json
 .DS_Store
 atest.js
+settings.json
