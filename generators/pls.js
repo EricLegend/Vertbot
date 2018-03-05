@@ -13,14 +13,13 @@ IdioticAPI = new Client(idToken, { dev: true });
 
 module.exports.run = (bot, message, args) =>{
 
+  var { Attachment } = require('discord.js');
 
-  var avatarURL, target, { Attachment } = require('discord.js');
+    if (message.mentions.users.first()) message.content = message.mentions.users.first().displayName;
+    bot.IdioticAPI.pls(message.content).then(img => {
+    message.channel.send(new Attachment(img, 'pls.png'));
+})};
 
-  if (message.mentions.users.first()) user = message.mentions.users.first();
-    bot.IdioticAPI.wreckIt(user.displayAvatarURL.replace('.gif', '.png'), user.username).then(img => {
-    message.channel.send(new Attachment(img, 'bobross.png'));
-          });
-      },
 
   module.exports.conf = {
   	enabled: true,
