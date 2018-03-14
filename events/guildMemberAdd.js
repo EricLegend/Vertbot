@@ -1,6 +1,6 @@
 module.exports = member => {
 
   const guild = member.guild;
-  const offtopic = guild.channels.find('name', 'offtopic');
-  return guild.channels.get(offtopic.id).send(`remember ${member.user} speak :taco:s`);
+  const botcommands = guild.channels.find('name', 'bot-commands');
+  return guild.channels.get(botcommands.id).send(`remember ${member.user} speak :taco:s`);
   };
