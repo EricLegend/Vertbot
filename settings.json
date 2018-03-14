@@ -1,0 +1,8 @@
+{
+  "prefix": "v.",
+  "token": "Bot Token",
+  "idToken": "Id Token",
+  "modRole" : "mod" ,
+  "adminRole" : "Vertcoin_Team_Member" ,
+  "ownerRole" : ["145702927099494400", "298574999894097921"]
+}
