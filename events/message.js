@@ -15,14 +15,15 @@ db
 module.exports = message => {
   if(message.author.bot) return;
   if(message.channel.type === 'dm') return;
-  
+
   let bot = message.client;
   if(!message.content.toLowerCase().startsWith(settings.prefix)) return;
-  
+
   let command = message.content.toLowerCase().split(' ')[0].slice(settings.prefix.length);
   let args = message.content.split(' ').slice(1);
   let perms = bot.elevation(message);
   let cmd;
+
 
   if(bot.commands.has(command)){
     cmd = bot.commands.get(command);
@@ -33,4 +34,11 @@ module.exports = message => {
   	if(perms < cmd.conf.permLevel) return message.reply(`You lack the valid permissions for this command!`);
   	cmd.run(bot, message, args, perms)
   }
+
+  module.exports.run = (bot, message, args) =>{
+    if (message.content.startsWith(prefix + 'bootstrap')) {
+          message.channel.send("https://www.reddit.com/r/vertcoin/comments/77eojk/sync_your_wallet_faster_with_the_bootstrapdat/?st=jawfi7mg&sh=f5d1e0ad").then(message.delete(3000));
+       }
+    };
+
 };

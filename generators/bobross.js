@@ -15,10 +15,16 @@ module.exports.run = (bot, message, args) =>{
 
 
   var avatarURL, target, { Attachment } = require('discord.js');
+          if (!message.mentions.users.first()) {
+              avatarURL = message.author.displayAvatarURL.replace('.gif', '.png');
+              target = `${message.member.displayName}`;
+          } else {
+              avatarURL = message.mentions.users.first().displayAvatarURL.replace('.gif', '.png');
+              target = message.mentions.members.first().displayName;
+          }
 
-  if (message.mentions.users.first()) user = message.mentions.users.first();
-    bot.IdioticAPI.bobRoss(user.displayAvatarURL.replace('.gif', '.png'), user.username).then(img => {
-    message.channel.send(new Attachment(img, 'bobross.png'));
+            bot.IdioticAPI.bobRoss(message.author.displayAvatarURL.replace('.gif', '.png'), avatarURL).then(img => {
+              message.channel.send(`**Bob Ross** painted **${target}**!`, new Attachment(img, 'bobmotherfuckenross.png'));
           });
       },
 
@@ -31,6 +37,6 @@ module.exports.run = (bot, message, args) =>{
 
   module.exports.help = {
     name: `${cmdNameL}`,
-    description: `Batslap mentioned user.`,
+    description: `paint a mentioned user.`,
     usage: `${cmdNameL} @user`
   }

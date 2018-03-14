@@ -23,7 +23,7 @@ module.exports.run = (bot, message, args) =>{
               target = message.mentions.members.first().displayName;
           }
 
-          bot.IdioticAPI.batSlap(message.author.displayAvatarURL.replace('.gif', '.png'), avatarURL).then(img => {
+            bot.IdioticAPI.batSlap(message.author.displayAvatarURL.replace('.gif', '.png'), avatarURL).then(img => {
               message.channel.send(`**${message.member.displayName}** slapped **${target}**!`, new Attachment(img, 'slap.png'));
           });
       },

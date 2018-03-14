@@ -52,7 +52,6 @@ fs.readdir('./generators/', (err, files) =>{
   })
 });
 
-
 bot.elevation = function(message) {
   let permLvl = 0;
   let modRole = message.guild.roles.find('name', settings.modRole);
