@@ -4,8 +4,11 @@ const googleTTS = require('google-tts-api');
 const Discord = require('discord.js');
 const fs = require('fs');
 const prefix = settings.prefix;
+const idToken = settings.idToken;
 const bot = new Discord.Client({disableEveryone: true});
 const guessed = new Set();
+const { Client } = require("idiotic-api");
+bot.IdioticAPI = new Client(idToken, { dev: true });
 
 exports.bot
 
@@ -13,7 +16,7 @@ require('./util/eventloader')(bot);
 
 bot.commands = new Discord.Collection();
 
-fs.readdir('./cmds/', (err, files) =>{
+fs.readdir('./crypto/', (err, files) =>{
   if(err) console.error(err);
 
   let jsfiles = files.filter(f => f.split('.').pop() === 'js');
@@ -22,10 +25,28 @@ fs.readdir('./cmds/', (err, files) =>{
     return;
   }
 
-  console.log(`Loading ${jsfiles.length} command(s)!`);
+  console.log(`Loading ${jsfiles.length} crytos!`);
 
   jsfiles.forEach((f, i) => {
-    let props = require(`./cmds/${f}`);
+    let props = require(`./crypto/${f}`);
+    console.log(`${i + 1}: ${f} loaded!`);
+    bot.commands.set(props.help.name, props);
+  })
+});
+
+fs.readdir('./generators/', (err, files) =>{
+  if(err) console.error(err);
+
+  let jsfiles = files.filter(f => f.split('.').pop() === 'js');
+  if(jsfiles.length <= 0) {
+    console.log('No commands to load!');
+    return;
+  }
+
+  console.log(`Loading ${jsfiles.length} generators!`);
+
+  jsfiles.forEach((f, i) => {
+    let props = require(`./generators/${f}`);
     console.log(`${i + 1}: ${f} loaded!`);
     bot.commands.set(props.help.name, props);
   })
