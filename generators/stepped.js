@@ -15,11 +15,11 @@ module.exports.run = (bot, message, args) =>{
 
 
   var { Attachment } = require('discord.js'), user = message.author;
-        if (message.mentions.users.first()) user = message.mentions.users.first();
-        bot.IdioticAPI.wreckIt(user.displayAvatarURL.replace('.gif', '.png'), user.username).then(img => {
-            message.channel.send(new Attachment(img, 'wreckit.png'));
-        });
-    },
+          if (message.mentions.users.first()) user = message.mentions.users.first();
+          bot.IdioticAPI.stepped(user.displayAvatarURL.replace('.gif', '.png'), user.username).then(img => {
+              message.channel.send(new Attachment(img, 'stepped.png'));
+          });
+      },
 
   module.exports.conf = {
   	enabled: true,
@@ -30,6 +30,6 @@ module.exports.run = (bot, message, args) =>{
 
   module.exports.help = {
     name: `${cmdNameL}`,
-    description: `emotionally scar a mentioned user.`,
+    description: `Super spank a user.`,
     usage: `${cmdNameL} @user`
   }
