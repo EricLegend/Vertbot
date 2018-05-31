@@ -51,24 +51,6 @@ fs.readdir('./generators/', (err, files) =>{
   })
 });
 
-fs.readdir('./botstuff/', (err, files) =>{
-  if(err) console.error(err);
-
-  let jsfiles = files.filter(f => f.split('.').pop() === 'js');
-  if(jsfiles.length <= 0) {
-    console.log('No commands to load!');
-    return;
-  }
-
-  console.log(`Loading ${jsfiles.length} bot stuffs.`);
-
-  jsfiles.forEach((f, i) => {
-    let props = require(`./botstuff/${f}`);
-    console.log(`${i + 1}: ${f} loaded!`);
-    bot.commands.set(props.help.name, props);
-  })
-});
-
 
 bot.elevation = function(message) {
   let permLvl = 0;
