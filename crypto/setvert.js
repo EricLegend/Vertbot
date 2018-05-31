@@ -29,15 +29,15 @@ module.exports.run = async (bot, message, args) =>{
       .write()
   }
 
-  setInterval(function () {
+  setInterval(async function () {
     request({url: 'https://api.coinmarketcap.com/v1/ticker/vertcoin', json: true},function(error, response, body) {
       let v = body;
       let newVal = (v[0].price_usd)
-      bot.user.setGame(`VTC $${JSON.stringify(v[0].price_usd).slice(1,-4)}`);
       const low = require('lowdb');
       const FileSync = require('lowdb/adapters/FileSync');
       const adapter = new FileSync('db.json')
       const db = low(adapter);
+      await bot.user.setGame(`VTC $${JSON.stringify(v[0].price_usd).slice(1,-4)}`);
 
       let oldVal = db.get('VTC.value').value();
 
