@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) =>{
         .addField("OUTPUT", `\`\`\`xl\n${clean(evaled)}\n\`\`\``)
         .setThumbnail('https://image.ibb.co/c462Qw/devround.png')
         .setColor(colors[`${cmdNameL}`])
-        .setFooter(`Developed by: BLinc#9496 and Eric#1643 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
+        .setFooter(`Developed by: BLinc#9496 and Eric#1997 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
       message.channel.send({embed: embed});
   } catch (err) {
     let embed = new Discord.RichEmbed()
@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args) =>{
       .addField("ERROR", `\`\`\`xl\n${clean(err)}\n\`\`\``)
       .setThumbnail('https://image.ibb.co/c462Qw/devround.png')
       .setColor(colors[`${cmdNameL}`])
-      .setFooter(`Developed by: BLinc#9496 and Eric#1643 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
+      .setFooter(`Developed by: BLinc#9496 and Eric#1997 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
     message.channel.send({embed: embed});
   }
 };

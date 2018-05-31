@@ -22,7 +22,7 @@ module.exports.run = (bot, message, args) =>{
 				.addField("1 HR Change:", `${result.body[0].percent_change_1h}%`, true)
 				.addField("24 HR Change:", `${result.body[0].percent_change_24h}%`, true)
 				.setColor(colors[`${cmdNameL}`])
-				.setFooter(`Developed by: BLinc#9496 and Eric#1643 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
+				.setFooter(`Developed by: BLinc#9496 and Eric#1997 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
 		  message.channel.send({embed: embed});
 		});
 	}
@@ -41,7 +41,7 @@ module.exports.run = (bot, message, args) =>{
 				.addField("1 HR Change:", `${result.body[0].percent_change_1h}%`, true)
 				.addField("24 HR Change:", `${result.body[0].percent_change_24h}%`, true)
 				.setColor(colors[`${cmdNameL}`])
-				.setFooter(`Developed by: BLinc#9496 and Eric#1643 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
+				.setFooter(`Developed by: BLinc#9496 and Eric#1997 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
 		  message.channel.send({embed: embed});
 		});
 	}
@@ -60,7 +60,7 @@ module.exports.run = (bot, message, args) =>{
 				.addField("1 HR Change:", `${result.body[0].percent_change_1h}%`, true)
 				.addField("24 HR Change:", `${result.body[0].percent_change_24h}%`, true)
 				.setColor(colors[`${cmdNameL}`])
-				.setFooter(`Developed by: BLinc#9496 and Eric#1643 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
+				.setFooter(`Developed by: BLinc#9496 and Eric#1997 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
 			message.channel.send({embed: embed});
 		});
 	}
@@ -70,7 +70,7 @@ module.exports.run = (bot, message, args) =>{
 			.setDescription(`You must supply a currency in order to get ${cmdNameU} information!\n\n**Example:** \`\`\`xl\nv.${cmdNameL} usd\n\`\`\``)
 			.addField("Supported Currency:", "\`usd, eur, gbp\`")
 			.setColor("#ff0000")
-			.setFooter(`Developed by: BLinc#9496 and Eric#1643 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
+			.setFooter(`Developed by: BLinc#9496 and Eric#1997 using Discord.js: v${Discord.version} and Node: ${process.version}.`)
 		message.channel.send({embed: embed})
 	}
 }

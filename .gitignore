@@ -3,5 +3,4 @@ package-lock.json
 db.json
 .DS_Store
 /settings.json
-moderation
 guildMemberAdd2.js
