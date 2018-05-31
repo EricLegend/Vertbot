@@ -30,6 +30,6 @@ module.exports.run = (bot, message, args) =>{
 
   module.exports.help = {
     name: `${cmdNameL}`,
-    description: `Super spank a user.`,
+    description: `Step on a user.`,
     usage: `${cmdNameL} @user`
   }
