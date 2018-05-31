@@ -3,7 +3,6 @@ const name = Math.floor(Math.random() * 999999);
 const googleTTS = require('google-tts-api');
 const Discord = require('discord.js');
 const fs = require('fs');
-const prefix = settings.prefix;
 const idToken = settings.idToken;
 const bot = new Discord.Client({disableEveryone: true});
 const guessed = new Set();
@@ -51,6 +50,25 @@ fs.readdir('./generators/', (err, files) =>{
     bot.commands.set(props.help.name, props);
   })
 });
+
+fs.readdir('./botstuff/', (err, files) =>{
+  if(err) console.error(err);
+
+  let jsfiles = files.filter(f => f.split('.').pop() === 'js');
+  if(jsfiles.length <= 0) {
+    console.log('No commands to load!');
+    return;
+  }
+
+  console.log(`Loading ${jsfiles.length} bot stuffs.`);
+
+  jsfiles.forEach((f, i) => {
+    let props = require(`./botstuff/${f}`);
+    console.log(`${i + 1}: ${f} loaded!`);
+    bot.commands.set(props.help.name, props);
+  })
+});
+
 
 bot.elevation = function(message) {
   let permLvl = 0;
