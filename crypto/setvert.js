@@ -1,4 +1,4 @@
-const request = require('request');
+﻿const request = require('request');
 const Discord = module.require('discord.js')
 const hastebin = require('hastebin-gen')
 const fs = require('fs');
@@ -8,14 +8,14 @@ module.exports.run = async (bot, message, args) =>{
     let v = body;
     console.log('Starting')
 
-    bot.user.setGame(`VTC $${JSON.stringify(v[0].price_usd).slice(1,-4)}`);
+    bot.user.setGame(`VTC $${JSON.stringify(v[0].price_btc).slice(1,-4)}`);
     message.channel.send("Set VTC Value, The Value will update automatically every 10 minutes")
     })
 
     setInterval(function () {
     request({url: 'https://api.coinmarketcap.com/v1/ticker/vertcoin', json: true},function(error, response, body) {
       let v = body;
-      vertVal((v[0].price_usd))
+      vertVal((v[0].price_btc))
       });
     }, 360000); //360000 for 6 minutes
 
@@ -32,12 +32,12 @@ module.exports.run = async (bot, message, args) =>{
   setInterval(function () {
     request({url: 'https://api.coinmarketcap.com/v1/ticker/vertcoin', json: true},function(error, response, body) {
       let v = body;
-      let newVal = (v[0].price_usd)
+      let newVal = (v[0].price_btc)
       const low = require('lowdb');
       const FileSync = require('lowdb/adapters/FileSync');
       const adapter = new FileSync('db.json')
       const db = low(adapter);
-      bot.user.setGame(`VTC $${JSON.stringify(v[0].price_usd).slice(1,-4)}`);
+      bot.user.setGame(`VTC $${JSON.stringify(v[0].price_btc).slice(1,-4)}`);
 
       let oldVal = db.get('VTC.value').value();
 
@@ -106,6 +106,6 @@ module.exports.conf = {
 
 module.exports.help = {
   name: 'setvert',
-  description: 'sets playing to vert coin value in usd and display an update every 10 minutes',
+  description: 'sets playing to vert coin value in sats and display an update every 10 minutes',
   usage: 'setvert'
 }
