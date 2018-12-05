@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) =>{
     let v = body;
     console.log('Starting')
 
-    bot.user.setGame(`VTC $${JSON.stringify(v[0].price_btc).slice(1,-4)}`);
+    bot.user.setGame(`BTC ${JSON.stringify(v[0].price_btc).slice(1,-4)}`);
     message.channel.send("Set VTC Value, The Value will update automatically every 10 minutes")
     })
 
@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) =>{
       const FileSync = require('lowdb/adapters/FileSync');
       const adapter = new FileSync('db.json')
       const db = low(adapter);
-      bot.user.setGame(`VTC $${JSON.stringify(v[0].price_btc).slice(1,-4)}`);
+      bot.user.setGame(`BTC ${JSON.stringify(v[0].price_btc).slice(1,-4)}`);
 
       let oldVal = db.get('VTC.value').value();
 
