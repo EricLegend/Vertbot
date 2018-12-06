@@ -8,8 +8,11 @@ module.exports.run = async (bot, message, args) =>{
     let v = body;
     console.log('Starting')
 
-    bot.user.setGame(`BTC ${JSON.stringify(v[0].price_btc).slice(1,-4)}`);
-    message.channel.send("Set VTC Value, The Value will update automatically every 10 minutes")
+    var price = (v[0].price_btc);
+    price = Math.ceil(parseFloat( price ) * 100000000);
+    bot.user.setActivity(`Sat ${price}`);
+    message.channel.send("Set VTC Value in Sat, The Value will update automatically every 10 minutes")
+
     })
 
     setInterval(function () {
@@ -17,7 +20,7 @@ module.exports.run = async (bot, message, args) =>{
       let v = body;
       vertVal((v[0].price_btc))
       });
-    }, 360000); //360000 for 6 minutes
+    }, 300000); //300000 for 5 minutes
 
   function vertVal(data){
     const low = require('lowdb');
@@ -37,7 +40,9 @@ module.exports.run = async (bot, message, args) =>{
       const FileSync = require('lowdb/adapters/FileSync');
       const adapter = new FileSync('db.json')
       const db = low(adapter);
-      bot.user.setGame(`BTC ${JSON.stringify(v[0].price_btc).slice(1,-4)}`);
+      var price = (v[0].price_btc);
+      price = Math.ceil(parseFloat( price ) * 100000000);
+      bot.user.setActivity(`Sat ${price}`);
 
       let oldVal = db.get('VTC.value').value();
 
@@ -93,7 +98,7 @@ module.exports.run = async (bot, message, args) =>{
       message.guild.members.get("145702927099494400").send(`Hourly Profit Tracker: ${r}`)
       message.guild.members.get("298574999894097921").send(`Hourly Profit Tracker: ${r}`)
     }).catch(console.error);
-  }, 3600000);//3600000
+  }, 3000000);//3000000
 
 }
 
@@ -106,6 +111,6 @@ module.exports.conf = {
 
 module.exports.help = {
   name: 'setvert',
-  description: 'sets playing to vert coin value in sats and display an update every 10 minutes',
+  description: 'sets playing to vertcoin value in sats and displays an update every 5 minutes',
   usage: 'setvert'
 }
