@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) =>{
     var price = (v[0].price_btc);
     price = Math.ceil(parseFloat( price ) * 100000000);
     bot.user.setActivity(`Sat ${price}`);
-    message.channel.send("Set VTC Value in Sat, The Value will update automatically every 10 minutes")
+    message.channel.send("Set VTC Value in sats, The Value will update automatically every 5 minutes")
 
     })
 

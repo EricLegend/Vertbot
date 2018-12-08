@@ -24,7 +24,7 @@ fs.readdir('./crypto/', (err, files) =>{
     return;
   }
 
-  console.log(`Loading ${jsfiles.length} crytos!`);
+  console.log(`Loading ${jsfiles.length} cryptos!`);
 
   jsfiles.forEach((f, i) => {
     let props = require(`./crypto/${f}`);
