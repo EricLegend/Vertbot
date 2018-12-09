@@ -1,7 +1,7 @@
 # Vertbot
 
 ### How this repo will work.
-Other developers can continute to this code. Once a day either `Flakfired#1337` or I
+Other developers can contribute to this code. Once a day either `Flakfired#1337` or I
 will merge to the master and run the bot with the new code. That's about it. If anyone has any questions feel free to either add an issue to this repo or message me on discord `eric#1997`
 
 
